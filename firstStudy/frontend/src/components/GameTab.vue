@@ -1,21 +1,28 @@
 <template>
-  <!-- <table class="game-lib">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Genre</th>
-        <th>Played</th>
-      </tr>
-    </thead>
+  <div class="container">
+    <table class="game-lib">
+      <thead>
+        <tr class="header">
+          <th>Name</th>
+          <th>Genre</th>
+          <th>Played</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <tr v-for="game in gameLib" :key="game.name">
-        <td>{{ game.name }}</td>
-        <td>{{ game.genre }}</td>
-        <td>{{ game.played }}</td>
-      </tr>
-    </tbody>
-  </table> -->
+      <tbody>
+        <tr class="row-values" v-for="game in gameLib" :key="game.name">
+          <td>{{ game.name }}</td>
+          <td>{{ game.genre }}</td>
+          <td>{{ game.played }}</td>
+          <td>
+            <button>Update</button>
+            <button @click="removeGameFromLibrary(game.id)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="container">
     <div class="header">
@@ -89,7 +96,7 @@ onMounted(async () => {
   margin: 0; /* Remove margens adicionais */
 }
 
-.header h1 {
+.header {
   font-weight: bold; /* Torna o texto do cabeçalho mais proeminente */
   border-bottom: solid 3px;
   font-size: 1.5rem;
