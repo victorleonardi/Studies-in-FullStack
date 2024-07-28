@@ -1,30 +1,28 @@
 <template>
-  <div class="container">
-    <table class="game-lib">
-      <thead>
-        <tr class="header">
-          <th>Name</th>
-          <th>Genre</th>
-          <th>Played</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
+  <table class="game-lib-table">
+    <thead>
+      <tr class="header">
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Played</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-      <tbody>
-        <tr class="row-values" v-for="game in gameLib" :key="game.name">
-          <td>{{ game.name }}</td>
-          <td>{{ game.genre }}</td>
-          <td>{{ game.played }}</td>
-          <td>
-            <button>Update</button>
-            <button @click="removeGameFromLibrary(game.id)">Deletar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      <tr class="row-values" v-for="game in gameLib" :key="game.name">
+        <td>{{ game.name }}</td>
+        <td>{{ game.genre }}</td>
+        <td>{{ game.played }}</td>
+        <td>
+          <button>Update</button>
+          <button @click="removeGameFromLibrary(game.id)">Deletar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="header">
       <h1>Name</h1>
       <h1>Genre</h1>
@@ -38,10 +36,9 @@
       <div class="action">
         <button>Update</button>
         <button @click="removeGameFromLibrary(game.id)">Deletar</button>
-        <!-- é importante entender o que fazer depoois que um jogo é deletado. Teremos que dar refresh? -->
       </div>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 </template>
 
 <script setup lang="ts">
@@ -71,8 +68,8 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.container {
-  width: 80%;
+.game-lib-table {
+  width: 90%;
   padding-left: 10%;
 }
 
@@ -85,10 +82,11 @@ onMounted(async () => {
 .row-values {
   display: flex;
   justify-content: space-between; /* Distribui espaço entre as colunas */
+  justify-items: start;
 }
 
-.header h1,
-.row-values h1,
+.header,
+.row-values,
 .action {
   width: 100%;
   flex: 1; /* Cada item ocupará uma parte igual do espaço disponível */
