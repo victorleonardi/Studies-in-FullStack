@@ -17,6 +17,12 @@ collection = {
         "name": "Dota",
         "genre": "MOBA",
         "played": False
+    },
+    "3": {
+        "id": "3",
+        "name": "Crawl",
+        "genre": "Classic",
+        "played": False
     }
 }
 
